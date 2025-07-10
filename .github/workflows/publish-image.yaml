@@ -1,0 +1,49 @@
+# .github/workflows/docker-publish.yml
+
+name: Build and Push Docker Image to GHCR
+
+# 1. 配置触发器：在推送到 main 分支时触发
+on:
+  push:
+    branches: [ "main" ]
+
+# 2. 环境变量：定义镜像仓库和名称
+env:
+  REGISTRY: ghcr.io
+  # 格式为：ghcr.io/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>
+  # github.repository 会自动替换为 "用户名/仓库名"
+  IMAGE_NAME: ${{ github.repository }}
+
+# 3. 定义工作流任务
+jobs:
+  build-and-push-image:
+    # 使用最新的 Ubuntu 运行环境
+    runs-on: ubuntu-latest
+
+    # 4. 设置权限：需要 packages: write 权限才能推送到 GHCR
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      # 5. 检出代码：将仓库代码下载到 Runner 中
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 6. 登录到 GHCR：使用特殊的 GITHUB_TOKEN 进行认证
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }} # github.actor 会自动替换为触发工作流的用户名
+          password: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN 是由 GitHub Actions 自动生成的临时令牌
+
+      # 7. 提取元数据：自动生成镜像的标签和元数据
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            # 为 main 分支的推送添加 latest 标签
+            type=raw,value=latest
