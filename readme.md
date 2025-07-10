@@ -1,6 +1,6 @@
 # Login tool
 
-```sh
+```shell
 pip install -r requirements.txt
 python ./cli.py --server vpn.sjsu.edu --authgroup Student-SSO
 ```
@@ -11,9 +11,9 @@ Then, you can get your command line and cookie.
 
 `Session Token:  ********@**********@******@**********************`
 
-# Docker
+# Docker Build
 
-```sh
+```shell
 docker build -t oc-socks-gateway .
 docker run -d --name oc-socks \
     --cap-add=NET_ADMIN \
@@ -24,6 +24,16 @@ docker run -d --name oc-socks \
     oc-socks-gateway
 ```
 Alternate Env:
+
+```shell
 VPN_USER_AGENT=${VPN_USER_AGENT:-"AnyConnect Linux_64 4.7.00136"}
 VPN_VERSION_STRING=${VPN_VERSION_STRING:-"4.7.00136"}
 VPN_PROTOCOL=${VPN_PROTOCOL:-"anyconnect"}
+```
+
+# Docker Prebuild
+
+```shell
+docker pull ghcr.io/seey6/oc2socks
+docker run -d --name oc2socks ...
+```
