@@ -1,9 +1,9 @@
 
 # oc2socks: OpenConnect with SSO to SOCKS5 Proxy
 
-\<p align="center"\>
-\<b\>English\</b\> | \<a href="https://github.com/Seey6/oc2socks/blob/main/readme_cn.md"\>简体中文\</a\>
-\</p\>
+<p align="center">
+<b>English</b> | <a href="https://github.com/Seey6/oc2socks/blob/main/readme_cn.md">简体中文</a>
+</p>
 
 `oc2socks` is a Dockerized tool that seamlessly converts an OpenConnect VPN connection requiring SSO (Single Sign-On) web authentication into a local SOCKS5 proxy. This allows any application on your system to connect through the VPN without complex configurations.
 

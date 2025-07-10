@@ -1,8 +1,8 @@
 # 🇨🇳 oc2socks: 将 OpenConnect SSO 登录转换为 SOCKS5 代理
 
-\<p align="center"\>
-\<a href="https://github.com/Seey6/oc2socks/blob/main/readme.md"\>English\</a\> | \<b\>简体中文\</b\>
-\</p\>
+<p align="center">
+<a href="https://github.com/Seey6/oc2socks/blob/main/readme.md">English</a> | <b>简体中文</b>
+</p>
 
 `oc2socks` 是一个 Docker化的工具，它可以将需要通过浏览器进行 SSO（单点登录）认证的 OpenConnect VPN 连接，无缝转换为一个本地 SOCKS5 代理。这使得您系统上的任何应用程序都能通过该代理连接到 VPN，而无需进行复杂的配置。
 
