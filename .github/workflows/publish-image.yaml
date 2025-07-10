@@ -46,4 +46,15 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             # 为 main 分支的推送添加 latest 标签
-            type=raw,value=latest
+            type=raw,value=latest,enable={{is_default_branch}}
+            # 添加 Git commit SHA (短格式)作为标签
+            type=sha,prefix=,format=short
+
+      # 8. 构建并推送镜像
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: . # Dockerfile 的路径 ( . 表示根目录)
+          push: true # 确认执行推送操作
+          tags: ${{ steps.meta.outputs.tags }} # 使用上一步生成的标签
+          labels: ${{ steps.meta.outputs.labels }} # 添加推荐的 OCI 标签
