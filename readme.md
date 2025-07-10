@@ -1,4 +1,3 @@
-
 # oc2socks: OpenConnect with SSO to SOCKS5 Proxy
 
 <p align="center">
@@ -128,3 +127,6 @@ You can customize the container's behavior with these environment variables:
 | `VPN_PROTOCOL`       | The VPN protocol to use (e.g., `anyconnect`, `gp`).  | `anyconnect`                  |
 | `VPN_USER_AGENT`     | User-Agent string for the OpenConnect client.        | `AnyConnect Linux_64 4.7.00136` |
 | `VPN_VERSION_STRING` | Version string for the OpenConnect client.           | `4.7.00136`                   |
+
+### Thanks
+[openconnect-sso](https://github.com/vlaci/openconnect-sso)

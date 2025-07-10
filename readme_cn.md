@@ -1,4 +1,4 @@
-# 🇨🇳 oc2socks: 将 OpenConnect SSO 登录转换为 SOCKS5 代理
+# oc2socks: 将 OpenConnect SSO 登录转换为 SOCKS5 代理
 
 <p align="center">
 <a href="https://github.com/Seey6/oc2socks/blob/main/readme.md">English</a> | <b>简体中文</b>
@@ -127,3 +127,6 @@
 | `VPN_PROTOCOL`       | 使用的 VPN 协议 (例如 `anyconnect`, `gp`)。    | `anyconnect`                  |
 | `VPN_USER_AGENT`     | OpenConnect 客户端的 User-Agent 字符串。       | `AnyConnect Linux_64 4.7.00136` |
 | `VPN_VERSION_STRING` | OpenConnect 客户端的版本字符串。               | `4.7.00136`                   |
+
+### 感谢
+[openconnect-sso](https://github.com/vlaci/openconnect-sso)
