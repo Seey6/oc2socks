@@ -1,0 +1,15 @@
+attrs
+colorama 
+importlib-metadata 
+lxml 
+keyring
+prompt-toolkit
+pyxdg
+requests 
+structlog 
+toml 
+setuptools 
+PySocks 
+PyQt6 
+PyQt6-WebEngine 
+pyotp 
